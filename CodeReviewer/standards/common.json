@@ -1,0 +1,13 @@
+{
+  "name": "common",
+  "rules": [
+    { "id": "SEC-001", "title": "No secrets in source", "severity": "Critical",
+      "description": "Passwords, API keys, tokens, connection strings and private keys must come from a secret store or environment, never from code or config checked in." },
+    { "id": "GEN-001", "title": "Tests for behaviour changes", "severity": "Medium",
+      "description": "New or changed business logic should be accompanied by unit tests covering the happy path and failure cases." },
+    { "id": "GEN-002", "title": "No dead code or untracked TODOs", "severity": "Low",
+      "description": "Do not commit commented-out code. TODO/FIXME must reference a ticket id (e.g. TODO(PROJ-123))." },
+    { "id": "GEN-003", "title": "Validate untrusted input", "severity": "High",
+      "description": "Data from HTTP requests, files, queues and devices is validated and size-limited at the trust boundary before use." }
+  ]
+}

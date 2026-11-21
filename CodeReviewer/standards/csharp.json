@@ -1,0 +1,25 @@
+{
+  "name": "csharp",
+  "rules": [
+    { "id": "CS-001", "title": "No async void", "severity": "High", "languages": ["csharp"],
+      "description": "Async methods must return Task/ValueTask and end with 'Async'. async void is only allowed for event handlers." },
+    { "id": "CS-002", "title": "No sync-over-async", "severity": "High", "languages": ["csharp"],
+      "description": "Never block with .Result, .Wait() or .GetAwaiter().GetResult() on a Task; await it instead (deadlocks, thread-pool starvation)." },
+    { "id": "CS-003", "title": "Dispose resources", "severity": "Medium", "languages": ["csharp"],
+      "description": "IDisposable/IAsyncDisposable instances must be wrapped in using/await using. Do not new up HttpClient per call; use IHttpClientFactory." },
+    { "id": "CS-004", "title": "Do not swallow exceptions", "severity": "Medium", "languages": ["csharp"],
+      "description": "No empty catch blocks. Catch the narrowest exception type; if catching Exception, log and rethrow (use 'throw;' not 'throw ex;')." },
+    { "id": "CS-005", "title": "Propagate CancellationToken", "severity": "Low", "languages": ["csharp"],
+      "description": "Public async APIs that perform I/O accept a CancellationToken and pass it to every downstream call." },
+    { "id": "CS-006", "title": "Parameterised SQL only", "severity": "Critical", "languages": ["csharp", "sql"],
+      "description": "Never build SQL by string concatenation or interpolation with external input; use parameters, EF Core LINQ or stored procedures." },
+    { "id": "CS-007", "title": "Validate public inputs", "severity": "Low", "languages": ["csharp"],
+      "description": "Public methods validate reference arguments (ArgumentNullException.ThrowIfNull) and ranges before use." },
+    { "id": "CS-008", "title": "Structured logging, no secrets", "severity": "Medium", "languages": ["csharp"],
+      "description": "Use ILogger message templates (not string interpolation). Never log secrets, tokens, passwords or personal/health data." },
+    { "id": "CS-009", "title": "Dependency injection", "severity": "Medium", "languages": ["csharp"],
+      "description": "Use constructor injection. No service locator, no static mutable state, no 'new' of services that have dependencies." },
+    { "id": "CS-010", "title": "Keep methods small", "severity": "Low", "languages": ["csharp"],
+      "description": "Methods over ~50 lines or with deep nesting / high cyclomatic complexity should be split." }
+  ]
+}
